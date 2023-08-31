@@ -1,0 +1,17 @@
+module ha(input a,b, output sum,carry); 
+xor s1(sum,a,b);
+and s2(carry,a,b); 
+endmodule 
+
+Testbench: 
+module ha_tb();
+ wire sum,carry; 
+reg a,b;
+ha a1(a,b,sum,carry); 
+initial
+begin a=0; b=0;
+end
+always #20 a=~a;
+always #10 b=~b; 
+endmodule
+ 
